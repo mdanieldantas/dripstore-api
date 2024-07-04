@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model produtos {
+    id Int @unique @default(autoincrement())
+    cor String
+    tamanho String
+    categorias_id Int
+    preco Float
+    estoque Int
+    num_serial Int
+    promocao_id Int
+
+  @@map("produtos")
+}
+
+model Usuarios {
+  id        Int    @id @default(autoincrement())
+  nome      String
+  cpf       String
+  email     String
+  telefone  Int
+  senha     String
+
+  @@map("usuarios")
+}
+
+// CREATE TABLE usuarios (
+// id INT NOT NULL AUTO_INCREMENT,
+// nome VARCHAR(100),
+// cpf VARCHAR(11),
+// email VARCHAR(50),
+// telefone INT,
+// senha VARCHAR(50),
+// PRIMARY KEY(id)
+// );
