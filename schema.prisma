@@ -31,6 +31,18 @@ model Usuarios {
   @@map("usuarios")
 }
 
+model Pedidos {
+  id           Int      @id @default(autoincrement())
+  nome String
+  user_id      Int
+  product_id   Int
+  valor        Float
+  quantidade_prod Int
+
+  @@map("pedidos")
+}
+
+
 // CREATE TABLE usuarios (
 // id INT NOT NULL AUTO_INCREMENT,
 // nome VARCHAR(100),
